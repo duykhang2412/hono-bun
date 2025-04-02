@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "target": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@packages/*": [
+        "packages/*"
+      ],
+      "@apps/*": [
+        "apps/*"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
