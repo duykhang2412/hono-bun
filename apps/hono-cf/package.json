@@ -2,7 +2,8 @@
   "name": "@apps/hono-cf",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "build": "bun build src/index.ts --outdir=dist"
   },
   "dependencies": {
     "@packages/hono-core": "workspace:*",

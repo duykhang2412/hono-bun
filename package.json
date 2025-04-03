@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "bun turbo build",
-    "dev:node": "bun turbo dev --filter=@apps/hono-node",
+    "dev:bun": "bun turbo dev --filter=@apps/hono-bun",
     "dev:cf": "bun turbo dev --filter=@apps/hono-cf",
     "lint": "bun turbo lint",
     "deploy": "bun turbo deploy --filter=@apps/hono-cf",
@@ -15,6 +15,7 @@
     "@eslint/compat": "^1.2.7",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.23.0",
+    "@types/bun": "^1.2.8",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
     "eslint": "^9.23.0",
@@ -30,8 +31,7 @@
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "turbo": "^2.4.4",
-    "typescript": "^5.8.2",
-    "@types/bun": "latest"
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "typescript": "^5"
