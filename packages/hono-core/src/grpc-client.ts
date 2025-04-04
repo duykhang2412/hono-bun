@@ -8,7 +8,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH);
 const proto = grpc.loadPackageDefinition(packageDefinition) as any;
 
 const client = new proto.hello.HelloService(
-    'localhost:3030',
+    'localhost:3000',
     grpc.credentials.createInsecure(),
 );
 
