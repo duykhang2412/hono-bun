@@ -1,3 +1,3 @@
-import { app } from '@packages/hono-core/server';
+import { startGrpcServer } from '../../../packages/hono-core/src/grpc-server.js';
 
-export default app;
+startGrpcServer();
