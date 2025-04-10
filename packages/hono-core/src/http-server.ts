@@ -1,34 +1,47 @@
 import express from 'express';
-import { sayHello, ping } from './grpc-client.js';
+import { getUser, createUser, updateUser } from '../../hono-core/src/controller/user-controller.js';
 
 const app = express();
 const HTTP_PORT = process.env.HTTP_PORT || 3000;
-
 app.use(express.json());
 
-app.get('/hello', async (req, res) => {
-    const name = (req.query.name as string) || 'World';
+app.get('/user/:id', async (req, res) => {
     try {
-        const response = await sayHello(name);
-        res.json(response);
-    } catch (error) {
-        console.error('Error in /hello:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        const resp = await getUser(req.params.id);
+        res.json(resp);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal error' });
     }
 });
 
-app.get('/ping', async (req, res) => {
+app.post('/user', async (req, res) => {
     try {
-        const response = await ping();
-        res.json(response);
-    } catch (error) {
-        console.error('Error in /ping:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        const { userId, userName } = req.body;
+        // Chỉ truyền 2 trường cần thiết, các timestamp sẽ được tạo ở bên trong controller
+        const resp = await createUser({ userId, userName });
+        res.json(resp);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal error' });
     }
 });
+
+
+app.put('/user', async (req, res) => {
+    try {
+        const { userId, userName } = req.body;
+        const ok = await updateUser({ userId, userName });
+        res.json({ ok });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal error' });
+    }
+});
+
 
 export function startHttpServer() {
     app.listen(HTTP_PORT, () => {
-        console.log(`🌐 HTTP server listening on port ${HTTP_PORT}`);
+        console.log(` HTTP server listening on port ${HTTP_PORT}`);
     });
 }
