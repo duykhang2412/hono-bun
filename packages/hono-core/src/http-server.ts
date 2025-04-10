@@ -18,7 +18,6 @@ app.get('/user/:id', async (req, res) => {
 app.post('/user', async (req, res) => {
     try {
         const { userId, userName } = req.body;
-        // Chỉ truyền 2 trường cần thiết, các timestamp sẽ được tạo ở bên trong controller
         const resp = await createUser({ userId, userName });
         res.json(resp);
     } catch (err) {

@@ -21,7 +21,6 @@ const server = new grpc.Server();
 server.addService(proto.user.UserServiceInternal.service, {
     CreateUser: async (call: any, callback: any) => {
         try {
-            // call.request.data chỉ chứa userId và userName
             const user = await createUser(call.request.data);
             callback(null, { ok: true, data: user });
         } catch (err) {
@@ -31,7 +30,6 @@ server.addService(proto.user.UserServiceInternal.service, {
 
     Update: async (call: any, callback: any) => {
         try {
-            // Chỉ truyền các trường cần thiết, updateUser sẽ tự cập nhật updatedTime
             const ok = await updateUser(call.request.data);
             callback(null, { ok });
         } catch (err) {
@@ -39,7 +37,6 @@ server.addService(proto.user.UserServiceInternal.service, {
         }
     },
 
-    // Phần GetUser giữ nguyên
     GetUser: async (call: any, callback: any) => {
         try {
             const user = await getUser(call.request.userId);
