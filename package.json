@@ -45,6 +45,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "@cloudflare/workers-types": "^4.20250402.0"
+    "@cloudflare/workers-types": "^4.20250402.0",
+    "js-yaml": "^4.1.0",
+    "winston": "^3.17.0"
   }
 }

@@ -8,6 +8,8 @@
     "types": [
       "bun"
     ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
   }
