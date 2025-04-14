@@ -38,7 +38,6 @@ app.put('/user', async (req, res) => {
     }
 });
 
-
 export function startHttpServer() {
     app.listen(HTTP_PORT, () => {
         console.log(` HTTP server listening on port ${HTTP_PORT}`);

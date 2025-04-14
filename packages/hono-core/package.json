@@ -2,8 +2,8 @@
   "name": "@packages/hono-core",
   "private": true,
   "exports": {
-    "./client": "./src/grpc-client.ts",
-    "./server": "./src/grpc-server.ts"
+    "./grpc-client": "./src/grpc-client.ts",
+    "./grpc-server": "./src/grpc-server.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

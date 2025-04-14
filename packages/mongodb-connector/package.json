@@ -7,6 +7,11 @@
     "build": "rimraf dist && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "exports": {
+    "./config-mongo": "./src/config-mongo.ts",
+    "./interface-mongo": "./src/interface-mongo.ts",
+    "./main-mongo": "./src/main-mongo.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
